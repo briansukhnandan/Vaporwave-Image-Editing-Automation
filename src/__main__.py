@@ -11,8 +11,10 @@ def main():
     Tk().withdraw
 
     image = askopenfilename()
+    print(image)
 
-    image = imageproc.convert_Image(imageproc.open_image("images/manhattan.jpg"))
+
+    image = imageproc.convert_Image(imageproc.open_image(image))
     imageproc.save_image(image, "images/output.png")
 
 
