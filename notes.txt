@@ -1,0 +1,150 @@
+"""
+    image = cv2.imread("images/bliss.png")
+    (h, w, d) = image.shape
+
+
+    pixel = image[200, 550]
+    print (pixel)
+
+    modifiedImage = image
+
+    # Loop through every pixel of the image.
+    for i in range(0, h):
+        for j in range(0, w):
+            # Returns a numpy array.
+
+            if (modifiedImage[i, j][0]) > 205:
+                modifiedImage[i, j][0] = 255
+            else :
+                modifiedImage[i, j][0] += 150
+
+            if (modifiedImage[i, j][2]) > 205:
+                modifiedImage[i, j][2] = 255
+            else :
+                modifiedImage[i, j][2] += 150
+
+
+    print (modifiedImage[200, 550][0])
+
+    cv2.imwrite("images/output.png", modifiedImage)
+
+"""
+
+# Getting a ROI (Region of Interest with predetermined values).
+# This takes our image and we set the pixel range to grab.
+# In this case height goes from 60 to 160, and width goes from 320 to 420.
+# roi = image[60:160, 320:420]
+
+# Resizes the image to 400x400, ignoring the aspect ratio.
+# resize = cv2.resize(image, (400,400))
+
+# But if we want to maintain the same aspect ratio, we can do:
+# This sets our px to whatever we want, but the height is calculated so
+# the image is not distorted.
+# r = 400.0 / w
+    #dim = (400, int(h*r))
+    #resize = cv2.resize(image, dim)
+
+    #image = resize
+
+    # Blurs the image with a Gaussian 11x11 kernel. Increasing the size
+    # will yield a blurrier image.
+    # blurred = cv2.GaussianBlur(resize, (11,11), 0)
+
+    # Drawing on an image is performed in-place, so we must get a copy
+    # of our image to work on so that we do not destroy the original.
+    #copy = image.copy()
+
+    # Parameters: top-left corner of rectangle, bottom-right corner, color of border, thickness
+    # Right now we have predetermined coordinates
+    #cv2.rectangle(copy,(140, 50), (220, 150), (0, 0, 255), 3)
+
+    # You can also draw circles, lines, and put text.
+
+"""
+    # Converting image to grayscale
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
+    blur = cv2.blur(gray,(11,11))
+    # Applying edge detection
+    # edged = cv2.Canny(gray,30,150)
+
+    # Makes pixels in gray that are more than 230 and setting them to 0 (black)
+    # And pixels less than 230 are set to white.
+    thresh = cv2.threshold(blur,70,255,cv2.THRESH_BINARY_INV)[1]
+
+    # Finding Contours:
+    # With the threshold picture, we are easily able to obtain the contours because
+    # the threshold picture is a black background with white shapes to represent our
+    # tetris pieces.
+    cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    cnts = imutils.grab_contours(cnts)
+
+    # One way to retain the color of our tetris blocks is by performing a bitwise
+    # and with both the thresh picture we had before and our original photo.
+    mask = thresh.copy()
+    output = cv2.bitwise_and(image,image,mask=mask)
+
+    for c in cnts:
+        cv2.drawContours(output, [c], -1, (0,0,0), 3)
+
+    text = "There are {} Tetris blocks.".format(len(cnts))
+"""
+
+"""
+    # CLAHE (Contrast Limited Adaptive Histogram Equalization)
+    # This allows us to change the Contrast of the photo.
+    clahe = cv2.createCLAHE(clipLimit=3, tileGridSize=(1,1))
+
+    # Change the color space to Lab and split it on 3 different channels.
+    # LAB stands for Lightness,component ranging from green to magenta, and blue -> yellow
+    lab = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
+
+    l, a, b = cv2.split(lab)
+
+    # On the l channel apply the Contrast we said earlier.
+    l2 = clahe.apply(l)
+
+    # Then set the color channel to l2,a,b.
+    lab = cv2.merge((l2,a,b))
+    img2 = cv2.cvtColor(lab, cv2.COLOR_LAB2BGR)
+"""
+# load the input image and show its dimensions, keeping in mind that
+# images are represented as a multi-dimensional NumPy array with
+# shape no. rows (height) x no. columns (width) x no. channels (depth)
+# depth would be 3 in this case, we're working with 3 color channels (RGB).
+
+# OpenCV uses BGR ordering, as that was the standard.
+
+
+"""
+    image = cv2.imread("images/bliss.png")
+    (h, w, d) = image.shape
+
+
+    pixel = image[200, 550]
+    print (pixel)
+
+    modifiedImage = image
+
+    # Loop through every pixel of the image.
+    for i in range(0, h):
+        for j in range(0, w):
+            # Returns a numpy array.
+
+            if (modifiedImage[i, j][0]) > 205:
+                modifiedImage[i, j][0] = 255
+            else :
+                modifiedImage[i, j][0] += 150
+
+            if (modifiedImage[i, j][2]) > 205:
+                modifiedImage[i, j][2] = 255
+            else :
+                modifiedImage[i, j][2] += 150
+
+
+    print (modifiedImage[200, 550][0])
+
+    cv2.imwrite("images/output.png", modifiedImage)
+
+"""
