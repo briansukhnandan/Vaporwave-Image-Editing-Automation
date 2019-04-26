@@ -7,3 +7,6 @@ The process for creating these images are generally the same, so I thought I'd a
 - The basics of Image-editing automation.
 - How Pictures and Pixel values are stored in memory and how to manipulate them.
 - A good introduction to Image Processing Programming
+
+# Where does the file save to? #
+images/output.jpg 
