@@ -7,7 +7,7 @@ listOfQuotes = [
     "What the superior man seeks is in \nhimself; what the small man seeks \nis in others.",
     "Nothing ever goes away until it has \ntaught us what we need to know.",
     "Life isn’t as serious as the mind \nmakes it out to be.",
-    "Watch what you say, and whatever you say, practice it."
+    "Watch what you say, and whatever you say, \npractice it."
 
 ]
 
