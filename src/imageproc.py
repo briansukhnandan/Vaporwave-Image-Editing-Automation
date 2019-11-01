@@ -88,9 +88,9 @@ def convert_Image(image):
     elements_on_image = ImageDraw.Draw(new_image)
 
     # Set fonts to use as text for our image.
-    font = ImageFont.truetype("fonts/MS-Gothic.ttf",int(width/22))
+    font = ImageFont.truetype("../fonts/MS-Gothic.ttf",int(width/22))
 
-    vaporfont = ImageFont.truetype("fonts/Vaporwave.ttf", int(width/3))
+    vaporfont = ImageFont.truetype("../fonts/Vaporwave.ttf", int(width/3))
 
     elementQuote = random.choice(listOfQuotes)
     element = random.choice(listOfChar)
@@ -103,6 +103,5 @@ def convert_Image(image):
     elements_on_image.text((int((width-w)/2),int((height-h)/2)), element, fill=(0, 0, 0), font=vaporfont)
 
     offset = (width / 2, height / 2)
-   # new_image.paste(windows_logo,(int(width/2),int(height/3)))
 
     return new_image
