@@ -11,7 +11,7 @@ class MainWindow:
     def __init__(self, master):
 
         self.master = master
-        master.title("Test")
+        master.title("Vaporwave Image Editing Automation")
 
         self.label = Tk.Label(master, textvariable=self.currently_editing_file_text)
         self.label.pack()
@@ -28,8 +28,8 @@ class MainWindow:
         self.updateLabel()
 
     def save(self):
-        print("Saving images to images/output.png")
-        imageproc.save_image(self.new_img, "../images/output.png")
+        print("Saving images to images/output/output.png")
+        imageproc.save_image(self.new_img, "../images/output/output.png")
 
     def updateLabel(self):
         self.currently_editing_file_text = Tk.StringVar()

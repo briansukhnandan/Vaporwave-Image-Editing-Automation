@@ -13,15 +13,13 @@ def main():
 
     root_window = Tk.Tk()
 
-    root_window.geometry("800x600")
+    root_window.geometry("400x100")
 
     gui_interface = win_init.MainWindow(root_window)
 
-
     root_window.filename = Tk.filedialog.askopenfilename()
 
-    print(root_window.filename)
-    gui_interface.currently_editing_file_text.set(root_window.filename)
+    print("Currently editing: \n"+root_window.filename)
 
     gui_interface.image = root_window.filename
 
