@@ -16,3 +16,4 @@ images/output/output.jpg
 - How Pictures and Pixel values are stored in memory and how to manipulate them.
 - A good introduction to Image Processing Programming
 
+![Example](ExampleOfUsage.png)
